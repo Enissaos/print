@@ -1,19 +1,19 @@
 
 const slides = [
 	{
-		"image": "slide1.jpg",
+		"images": "assets/images/slideshow/slide1.jpg",
 		"tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
-		"image": "slide2.jpg",
+		"images": "assets/images/slideshow/slide2.jpg",
 		"tagLine": "Tirages haute définition grand format <span>pour vos bureaux et events</span>"
 	},
 	{
-		"image": "slide3.jpg",
+		"images": "assets/images/slideshow/slide3.jpg",
 		"tagLine": "Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
-		"image": "slide4.png",
+		"images": "assets/images/slideshow/slide4.png",
 		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
@@ -26,12 +26,38 @@ const arrowRight = document.querySelector(".arrow.arrow_right");
 
 const dots = document.querySelectorAll(".dot");
 
+
+const bannerImg = document.querySelector(".banner-img")
+const pBanner = document.querySelector(".p_banner")
+
+
+let currentSlideIndex = 0;
+function showSlide(index) {
+	const currentSlide = slides[index];
+	console.log("Afficher la diapositive :", currentSlide.image);
+	console.log("Balise associée :", currentSlide.tagLine);
+	bannerImg.src = currentSlide.images
+	pBanner.innerHTML = currentSlide.tagLine
+	dots.forEach(onedot => onedot.classList.remove("dot_selected"))
+	dots[index].classList.add("dot_selected")
+
+
+}
 arrowLeft.addEventListener("click", function () {
-	console.log("La fleche gauche!");
+	currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+	showSlide(currentSlideIndex);
 });
 
 arrowRight.addEventListener("click", function () {
-	console.log("La fleche droite!");
+	currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+	showSlide(currentSlideIndex);
 });
 
 
+dots.forEach((dot, index) => {
+	dot.addEventListener("click", function () {
+		currentSlideIndex = index;
+		showSlide(currentSlideIndex);
+	});
+
+});
