@@ -17,9 +17,10 @@ const slides = [
 		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-console.log(slides);
 
 
+
+/*Selection des élements du Dom*/
 
 const arrowLeft = document.querySelector(".arrow.arrow_left");
 const arrowRight = document.querySelector(".arrow.arrow_right");
@@ -30,12 +31,14 @@ const dots = document.querySelectorAll(".dot");
 const bannerImg = document.querySelector(".banner-img")
 const pBanner = document.querySelector(".p_banner")
 
+/*initialisation de la diapo index 0=celle de depart par la variable currentslideindex*/
 
 let currentSlideIndex = 0;
+
+
 function showSlide(index) {
 	const currentSlide = slides[index];
-	console.log("Afficher la diapositive :", currentSlide.image);
-	console.log("Balise associée :", currentSlide.tagLine);
+
 	bannerImg.src = currentSlide.images
 	pBanner.innerHTML = currentSlide.tagLine
 	dots.forEach(onedot => onedot.classList.remove("dot_selected"))
@@ -43,6 +46,8 @@ function showSlide(index) {
 
 
 }
+
+/*Events listeners*/
 arrowLeft.addEventListener("click", function () {
 	currentSlideIndex--;
 	if (currentSlideIndex < 0) {
