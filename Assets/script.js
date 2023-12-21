@@ -1,19 +1,19 @@
 
 const slides = [
 	{
-		"images": "assets/images/slideshow/slide1.jpg",
+		"images": "Assets/images/slideshow/slide1.jpg",
 		"tagLine": "Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
-		"images": "assets/images/slideshow/slide2.jpg",
+		"images": "Assets/images/slideshow/slide2.jpg",
 		"tagLine": "Tirages haute définition grand format <span>pour vos bureaux et events</span>"
 	},
 	{
-		"images": "assets/images/slideshow/slide3.jpg",
+		"images": "Assets/images/slideshow/slide3.jpg",
 		"tagLine": "Grand choix de couleurs <span>de CMJN aux pantones</span>"
 	},
 	{
-		"images": "assets/images/slideshow/slide4.png",
+		"images": "Assets/images/slideshow/slide4.png",
 		"tagLine": "Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
