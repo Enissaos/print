@@ -44,12 +44,19 @@ function showSlide(index) {
 
 }
 arrowLeft.addEventListener("click", function () {
-	currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+	currentSlideIndex--;
+	if (currentSlideIndex < 0) {
+		currentSlideIndex = slides.length - 1;
+	}
 	showSlide(currentSlideIndex);
 });
 
+
 arrowRight.addEventListener("click", function () {
-	currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+	currentSlideIndex++;
+	if (currentSlideIndex >= slides.length) {
+		currentSlideIndex = 0;
+	}
 	showSlide(currentSlideIndex);
 });
 
